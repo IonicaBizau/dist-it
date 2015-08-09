@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+input_file=$1
+name=`namy -p $input_file`
+dist_folder=dist
+mkdir -p $dist_folder
+browserify $input_file -s $name | uglifyjs > $dist_folder/$2
+
+git add .
+git commit -m 'Rebuild'

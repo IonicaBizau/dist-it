@@ -1,0 +1,28 @@
+{
+  "name": "distify",
+  "version": "1.0.0",
+  "description": "Create Browserify bundles with defaults.",
+  "main": "index.js",
+  "bin": {
+      "distify": "./bin/distify"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:IonicaBizau/distify.git"
+  },
+  "keywords": [
+    "dist",
+    "browserify",
+    "bundle",
+    "defaults"
+  ],
+  "author": "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
+  "license": "KINDLY",
+  "bugs": {
+    "url": "https://github.com/IonicaBizau/distify/issues"
+  },
+  "homepage": "https://github.com/IonicaBizau/distify"
+}
