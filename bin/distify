@@ -3,7 +3,7 @@
 # This displays the usage and exists the script
 display_usage () {
     echo "distify <input-file> <output-name>"
-    exit 1
+    exit 0
 }
 
 check_exist () {
