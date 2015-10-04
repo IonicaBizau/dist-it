@@ -1,10 +1,57 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
+# This displays the usage and exists the script
+display_usage () {
+    echo "distify <input-file> <output-name>"
+    exit 1
+}
+
+check_exist () {
+    if ! which $1 > /dev/null; then
+      echo "Cannot find $1. Please run 'npm install -g $1' to get it."
+      exit 1;
+    fi
+}
+
+# Check for namy.
+check_exist namy
+check_exist uglifyjs
+check_exist browserify
+
+# distify lib/index.js fileName
+if [ -z "$1" ]
+  then
+    echo "Please provide the input file."
+    display_usage
+  fi
+
+# Check for filename
+if [ -z "$2" ]
+  then
+    echo "Please provide the output file name."
+    display_usage
+  fi
+
+# Get the input file
 input_file=$1
+
+# Get the exported function name
 name=`namy -p $input_file`
+
+# Check if the name is there
+if [ -z "$name" ]
+  then
+    echo "Cannot find the library name. Make sure the input file exports a function."
+    display_usage
+  fi
+
+# Create the dist older
 dist_folder=dist
 mkdir -p $dist_folder
-browserify $input_file -s $name | uglifyjs > $dist_folder/$2
 
-git add .
+# Create the output
+browserify $input_file -s $name | uglifyjs -c -m -o $dist_folder/$2
+
+# Commit the changes
+git add $dist_folder
 git commit -m 'Rebuild'
