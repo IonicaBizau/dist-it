@@ -1,7 +1,7 @@
 {
   "name": "distify",
   "version": "1.0.0",
-  "description": "Create Browserify bundles with defaults.",
+  "description": "A tool to generate minified bundles from modular inputs using Browserify.",
   "main": "index.js",
   "bin": {
       "distify": "./bin/distify"
