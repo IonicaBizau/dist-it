@@ -15,22 +15,22 @@
 
 # `$ distify` [![Donate now][donate-now]][paypal-donations]
 
-Create Browserify bundles with defaults.
+A tool to generate minified bundles from modular inputs using Browserify.
 
 ## Installation
 
-```sh
-$ npm i distify
-```
-
-### CLI Usage
 You can install the package globally and use it as command line tool:
 
 ```sh
 $ npm i -g distify
 ```
 
-Then, run `distify --help` and see what the cli tool can do.
+Then, run `distify --help` and see what the CLI tool can do.
+
+```sh
+$ distify --help
+distify <input-file> <output-name>
+```
 
 ## Documentation
 
@@ -38,6 +38,9 @@ For full API reference, see the [DOCUMENTATION.md][docs] file.
 
 ## How to contribute
 Have an idea? Found a bug? See [how to contribute][contributing].
+
+## Press Highlights
+None yet. If you wrote or found an article about this project, [add it][contributing] in this section.  :memo:
 
 ## License
 [KINDLY][license] © [Ionică Bizău][website]–The [LICENSE](/LICENSE) file contains
@@ -48,4 +51,4 @@ a copy of the license.
 [website]: http://ionicabizau.net
 [docs]: /DOCUMENTATION.md
 [paypal-donations]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MG98D7NPFZ3MG
-[donate-now]: http://i.imgur.com/jioicaN.png
+[donate-now]: http://i.imgur.com/6cMbHOC.png
