@@ -16,7 +16,7 @@ Then, run `dist-it --help` and see what the CLI tool can do.
 
 ```sh
 $ dist-it --help
-distify <input-file> <output-name>
+dist-it <input-file> <output-name>
 ```
 
 ## Documentation

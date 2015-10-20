@@ -2,7 +2,7 @@
 
 # This displays the usage and exists the script
 display_usage () {
-    echo "distify <input-file> <output-name>"
+    echo "dist-it <input-file> <output-name>"
     exit 0
 }
 
@@ -23,7 +23,7 @@ check_exist namy
 check_exist uglifyjs
 check_exist browserify
 
-# distify lib/index.js fileName
+# dist-it lib/index.js fileName
 if [ -z "$1" ]
   then
     echo "Please provide the input file."
