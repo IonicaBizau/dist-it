@@ -2,7 +2,7 @@
 
 # `$ dist-it` [![Donate now][donate-now]][paypal-donations]
 
-A tool to generate minified bundles from modular inputs using Browserify.
+Generate minified bundles from modular inputs using Browserify.
 
 ## Installation
 

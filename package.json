@@ -1,7 +1,7 @@
 {
   "name": "dist-it",
   "version": "1.0.0",
-  "description": "A tool to generate minified bundles from modular inputs using Browserify.",
+  "description": "Generate minified bundles from modular inputs using Browserify.",
   "main": "index.js",
   "bin": {
       "dist-it": "./bin/dist-it"
