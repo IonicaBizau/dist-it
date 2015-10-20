@@ -1,17 +1,17 @@
 {
-  "name": "distify",
+  "name": "dist-it",
   "version": "1.0.0",
   "description": "A tool to generate minified bundles from modular inputs using Browserify.",
   "main": "index.js",
   "bin": {
-      "distify": "./bin/distify"
+      "dist-it": "./bin/dist-it"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:IonicaBizau/distify.git"
+    "url": "git@github.com:IonicaBizau/dist-it.git"
   },
   "keywords": [
     "dist",
@@ -22,7 +22,10 @@
   "author": "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
   "license": "KINDLY",
   "bugs": {
-    "url": "https://github.com/IonicaBizau/distify/issues"
+    "url": "https://github.com/IonicaBizau/dist-it/issues"
   },
-  "homepage": "https://github.com/IonicaBizau/distify"
+  "homepage": "https://github.com/IonicaBizau/dist-it",
+  "blah": {
+    "h_img": "http://i.imgur.com/e7FiCip.png"
+  }
 }
