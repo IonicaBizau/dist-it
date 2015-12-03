@@ -4,6 +4,21 @@
 
 Generate minified bundles from modular inputs using Browserify.
 
+## Installation
+
+You can install the package globally and use it as command line tool:
+
+```sh
+$ npm i -g dist-it
+```
+
+Then, run `dist-it --help` and see what the CLI tool can do.
+
+```sh
+$ dist-it --help
+dist-it <input-file> <output-name>
+```
+
 ## How to contribute
 Have an idea? Found a bug? See [how to contribute][contributing].
 
