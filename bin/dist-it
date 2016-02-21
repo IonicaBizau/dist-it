@@ -6,12 +6,25 @@ display_usage () {
     exit 0
 }
 
+exit_missing_dep () {
+    echo "Cannot find $1. Please run 'npm install -g $1' to get it."
+    exit 1;
+}
+
+warning_missing () {
+    echo "$1 is missing. The bundling may fail if you used ES2015 features in your scripts."
+}
+
 check_exist () {
     if ! which $1 > /dev/null; then
-      echo "Cannot find $1. Please run 'npm install -g $1' to get it."
-      exit 1;
+        $2 $1
+    else
+        if [ -n "$3" ]; then
+            $3 $1
+        fi
     fi
 }
+
 
 if [ "$1" = "--help" ]
   then
@@ -19,9 +32,9 @@ if [ "$1" = "--help" ]
   fi
 
 # Check for namy.
-check_exist namy
-check_exist uglifyjs
-check_exist browserify
+check_exist namy exit_missing_dep
+check_exist uglifyjs exit_missing_dep
+check_exist browserify exit_missing_dep
 
 # dist-it lib/index.js fileName
 if [ -z "$1" ]
@@ -54,9 +67,21 @@ if [ -z "$name" ]
 dist_folder=dist
 mkdir -p $dist_folder
 
+output_file_name=$2
+output_file_path=$dist_folder/$output_file_name
+
 # Create the output
-browserify $input_file -s $name | uglifyjs -c -m -o $dist_folder/$2
+browserify $input_file -s $name -o $output_file_path
+
+babelify () {
+    babel $output_file_path -o $output_file_path
+}
+
+check_exist babel warning_missing babelify
+
+uglifyjs $output_file_path -cm -o $dist_folder/$2
 
 # Commit the changes
-git add $dist_folder
-git commit -m 'Rebuild'
+git add $dist_folder 2>/dev/null
+git commit -m 'Rebuild' 2>/dev/null
+echo "Done"
