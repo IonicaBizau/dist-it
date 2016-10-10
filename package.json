@@ -1,6 +1,6 @@
 {
   "name": "dist-it",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Generate minified bundles from modular inputs using Browserify.",
   "main": "lib/index.js",
   "bin": {
