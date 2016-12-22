@@ -1,9 +1,22 @@
-THIS_DIR="$(dirname -- "$0")/../"
-THIS_DIR=`readlink -e $THIS_DIR`
+pushd . > /dev/null
+SCRIPT_PATH="${BASH_SOURCE[0]}";
+if ([ -h "${SCRIPT_PATH}" ]) then
+  while([ -h "${SCRIPT_PATH}" ]) do cd `dirname "$SCRIPT_PATH"`; SCRIPT_PATH=`readlink "${SCRIPT_PATH}"`; done
+fi
+cd `dirname ${SCRIPT_PATH}` > /dev/null
+SCRIPT_PATH=`pwd`;
+popd  > /dev/null
+
+TOOL_DIR=$SCRIPT_PATH/../
 
 # This displays the usage and exists the script
 display_usage () {
-    echo "dist-it <input-file> <output-name>"
+    echo "dist-it <input-file> <output-name> [options]"
+    echo "options:"
+    echo ""
+    echo "  --no-babelify: Turn off the ES6 -> ES5 transipling step."
+    echo "  --no-uglify: Turn off the uglify step."
+    echo "  --no-commit: Disable auto-commit."
     exit 0
 }
 
@@ -30,7 +43,7 @@ if [ -z "$2" ]
 input_file=$1
 
 # Get the exported function name
-name=`$THIS_DIR/node_modules/.bin/namy -p $input_file`
+name=`$TOOL_DIR/node_modules/.bin/namy -p $input_file`
 
 # Check if the name is there
 if [ -z "$name" ]
@@ -50,17 +63,32 @@ output_file_path=$dist_folder/$output_file_name
 
 # Create the output
 echo "Browserifying..."
-$THIS_DIR/node_modules/.bin/browserify $input_file -s $name -o $output_file_path
+$TOOL_DIR/node_modules/.bin/browserify $input_file -s $name -o $output_file_path
 
-echo "Babelifying..."
-$THIS_DIR/node_modules/.bin/babel $output_file_path -o $output_file_path --no-babelrc --presets=$THIS_DIR/node_modules/babel-preset-es2015
+if [[ $* == *--no-babelify* ]]
+  then
+    echo "Not babelifying."
+  else
+    echo "Babelifying..."
+    $TOOL_DIR/node_modules/.bin/babel $output_file_path -o $output_file_path --no-babelrc --presets=$TOOL_DIR/node_modules/babel-preset-es2015
+  fi
 
-echo "Uglifying..."
-$THIS_DIR/node_modules/.bin/uglifyjs $output_file_path -cm -o $dist_folder/$2
+if [[ $* == *--no-uglify* ]]
+  then
+    echo "Not uglifying."
+  else
+    echo "Uglifying..."
+    $TOOL_DIR/node_modules/.bin/uglifyjs $output_file_path -cm -o $dist_folder/$2
+  fi
 
-echo "Committing..."
+if [[ $* == *--no-commit* ]]
+  then
+    echo "Not committing."
+  else
+    echo "Committing..."
+    # Commit the changes
+    git add $dist_folder 2>/dev/null
+    git commit -m 'Rebuild' 2>/dev/null
+  fi
 
-# Commit the changes
-git add $dist_folder 2>/dev/null
-git commit -m 'Rebuild' 2>/dev/null
 echo "Done"
