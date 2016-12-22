@@ -1,6 +1,6 @@
 {
   "name": "dist-it",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Generate minified bundles from modular inputs using Browserify.",
   "main": "lib/index.js",
   "bin": {
@@ -26,34 +26,7 @@
   },
   "homepage": "https://github.com/IonicaBizau/dist-it",
   "blah": {
-    "h_img": "http://i.imgur.com/e7FiCip.png",
-    "show_installation": false,
-    "description": [
-      {
-        "h2": "Installation"
-      },
-      {
-        "p": "You can install the package globally and use it as command line tool:"
-      },
-      {
-        "code": {
-          "language": "sh",
-          "content": "$ npm i -g dist-it"
-        }
-      },
-      {
-        "p": "Then, run `dist-it --help` and see what the CLI tool can do."
-      },
-      {
-        "code": {
-          "language": "sh",
-          "content": [
-            "$ dist-it --help",
-            "dist-it <input-file> <output-name>"
-          ]
-        }
-      }
-    ]
+    "h_img": "http://i.imgur.com/e7FiCip.png"
   },
   "dependencies": {
     "babel-cli": "^6.6.5",
