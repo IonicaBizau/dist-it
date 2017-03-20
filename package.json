@@ -1,6 +1,6 @@
 {
   "name": "dist-it",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Generate minified bundles from modular inputs using Browserify.",
   "main": "lib/index.js",
   "bin": {
@@ -19,7 +19,7 @@
     "bundle",
     "defaults"
   ],
-  "author": "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
+  "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/IonicaBizau/dist-it/issues"
@@ -39,12 +39,11 @@
     "bin/",
     "app/",
     "lib/",
-    "build/",
     "dist/",
     "src/",
+    "scripts/",
     "resources/",
     "menu/",
-    "scripts/",
     "cli.js",
     "index.js"
   ]
