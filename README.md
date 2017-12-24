@@ -15,7 +15,11 @@ You can install the package globally and use it as command line tool:
 
 
 ```sh
-$ npm i -g dist-it
+# Using npm
+npm install --global dist-it
+
+# Using yarn
+yarn global add dist-it
 ```
 
 
