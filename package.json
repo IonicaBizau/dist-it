@@ -1,6 +1,6 @@
 {
   "name": "dist-it",
-  "version": "3.1.8",
+  "version": "3.1.9",
   "description": "Generate minified bundles from modular inputs using Browserify.",
   "main": "lib/index.js",
   "bin": {
@@ -31,9 +31,9 @@
   "dependencies": {
     "babel-cli": "^6.6.5",
     "babel-preset-es2015": "^6.6.0",
-    "browserify": "^13.1.1",
+    "browserify": "^16.2.3",
     "namy": "^1.2.6",
-    "uglifyjs": "^2.4.10"
+    "uglify-js": "^3.6.0"
   },
   "files": [
     "bin/",
